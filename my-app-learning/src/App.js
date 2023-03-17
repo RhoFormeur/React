@@ -1,4 +1,4 @@
-import "./assets/css/App.css";
+import "./App.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
 // Import Pages

@@ -8,7 +8,7 @@ const ListCard= (props) => {
         <div className="row">
           {list.map((item)=>{
             return(
-              <div className="card">
+              <div key={item.id} className="card">
                 <img src={item.img} alt="Licorne"></img>
                 <div className="card-body">
                   <p>{item.title}</p>
