@@ -6,29 +6,37 @@ import {
   Flex,
   CardBody,
   Image,
-  Stack,
   Divider,
   CardFooter,
   Button,
+  IconButton,
+  HStack,
+  Wrap,
+  WrapItem,
 } from '@chakra-ui/react';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 import vote from '../../assets/vote.svg';
 
 const CardProposal = props => {
   const { proposal } = props;
+
   return (
     <Box>
       <Text>Liste de Proposal</Text>
-      <Flex>
+      <Wrap spacing={'24px'} justify={'center'}>
         {proposal.map(item => {
+          let totalQuantity = 0;
+          let totalValue = 0;
           return (
-            <Box>
-              <Card maxW="sm" key={item.id}>
+            <WrapItem>
+              <Card minW={'xs'} key={item.id} boxShadow="base">
                 <CardHeader>
                   <Flex justify={'space-between'}>
                     <Box>
                       <Text>Proposal #{item.id}</Text>
-                      <Text fontSize={'sm'}>{item.date}</Text>
+                      <Text fontSize={'sm'} color={'grey'}>
+                        {item.date}
+                      </Text>
                     </Box>
                     <Image w={'64px'} src={item.avatar} alt="avatar" />
                   </Flex>
@@ -39,34 +47,26 @@ const CardProposal = props => {
                 <CardBody>
                   <Flex>
                     <Image src={vote} />
-                    <Box>
+                    <Box w={'100%'}>
                       <Flex direction={'column'} justify={'space-between'}>
-                        <Stack spacing={'3'}>
-                          <Flex direction={'column'} justify={'space-around'}>
-                            <Box>
-                              <Text>Loin of Vension</Text>
-                              <Text fontSize={'sm'}>
-                                Black Pudding Pure & Jerk
-                              </Text>
-                            </Box>
-                            <Flex justify={'space-between'}>
-                              <Text>$12.5</Text>
-                              <Text>Qty: 1</Text>
+                        {item.contract.map(item => {
+                          totalQuantity += item.quantity;
+                          totalValue += item.value * item.quantity;
+                          return (
+                            <Flex direction={'column'} justify={'space-around'}>
+                              <Flex direction={'column'}>
+                                <Text>Item :</Text>
+                                <Text fontSize={'sm'} color={'grey'}>
+                                  {item.content}
+                                </Text>
+                              </Flex>
+                              <Flex justify={'space-between'}>
+                                <Text>${item.value}</Text>
+                                <Text>Qty: {item.quantity}</Text>
+                              </Flex>
                             </Flex>
-                          </Flex>
-                          <Flex direction={'column'} justify={'space-around'}>
-                            <Box>
-                              <Text>Loin of Vension</Text>
-                              <Text fontSize={'sm'}>
-                                Black Pudding Pure & Jerk
-                              </Text>
-                            </Box>
-                            <Flex justify={'space-between'}>
-                              <Text>$12.5</Text>
-                              <Text>Qty: 1</Text>
-                            </Flex>
-                          </Flex>
-                        </Stack>
+                          );
+                        })}
                       </Flex>
                     </Box>
                   </Flex>
@@ -77,25 +77,45 @@ const CardProposal = props => {
                 <CardFooter>
                   <Flex w={'100%'} justify={'space-between'}>
                     <Box>
-                      <Text fontSize={'sm'}>x2 Items</Text>
-                      <Text>$12.5</Text>
+                      <Text fontSize={'sm'} color={'grey'}>
+                        x{totalQuantity} Items
+                      </Text>
+                      <Text>${totalValue}</Text>
                     </Box>
-                    {/* {proposal.is_accepted()} */}
-                    <Box>
-                      <Button>
-                        <CheckIcon />
-                      </Button>
-                      <Button>
-                        <CloseIcon />
-                      </Button>
-                    </Box>
+                    {item.is_completed ? (
+                      <Box>
+                        <Button leftIcon={<CheckIcon />} colorScheme="green">
+                          Completed
+                        </Button>
+                      </Box>
+                    ) : item.is_rejected ? (
+                      <Box>
+                        <Button leftIcon={<CloseIcon />} colorScheme="red">
+                          Rejected
+                        </Button>
+                      </Box>
+                    ) : (
+                      <Box>
+                        <HStack spacing={'24px'}>
+                          <IconButton
+                            colorScheme="green"
+                            icon={<CheckIcon />}
+                          />
+                          <IconButton
+                            variant="outline"
+                            colorScheme="green"
+                            icon={<CloseIcon />}
+                          />
+                        </HStack>
+                      </Box>
+                    )}
                   </Flex>
                 </CardFooter>
               </Card>
-            </Box>
+            </WrapItem>
           );
         })}
-      </Flex>
+      </Wrap>
     </Box>
   );
 };

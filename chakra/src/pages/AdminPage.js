@@ -1,11 +1,3 @@
-import AdminLayout from "../layouts/AdminLayouts";
-
-const AdminPage = () =>{
-    return(
-        <AdminLayout>
-            <h2>AdminPage</h2>
-        </AdminLayout>
-    );
+export const AdminPage = () => {
+  return <h2>AdminPage</h2>;
 };
-
-export default AdminPage;

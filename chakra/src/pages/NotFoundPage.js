@@ -1,11 +1,3 @@
-import MainLayout from "../layouts/MainLayouts";
-
-const NotFoundPage = () => {
-  return (
-    <MainLayout>
-      <h2>404 Not Fount</h2>
-    </MainLayout>
-  );
+export const NotFoundPage = () => {
+  return <h2>404 Not Fount</h2>;
 };
-
-export default NotFoundPage;

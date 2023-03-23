@@ -5,7 +5,7 @@ const ListCard = props => {
   return (
     <Box>
       <Text>Liste de Voiture</Text>
-      <Wrap spacing={'30px'} justify={'center'}>
+      <Wrap spacing={'24px'} justify={'center'}>
         {list.map(item => {
           return (
             <WrapItem key={item.id}>
