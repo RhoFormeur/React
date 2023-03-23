@@ -8,8 +8,8 @@ const ListCard = props => {
       <Wrap spacing={'30px'} justify={'center'}>
         {list.map(item => {
           return (
-            <WrapItem>
-              <Card maxW="sm" h={'500px'} key={item.id}>
+            <WrapItem key={item.id}>
+              <Card maxW="sm" h={'500px'}>
                 <CardBody>
                   <Image src={item.img} alt={item.title} borderRadius="lg" />
                   <Stack mt="6" spacing="3">

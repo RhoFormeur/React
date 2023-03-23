@@ -15,7 +15,7 @@ function App() {
         <Route path="/" exact element={<HomePage />} />
         <Route path="/TerraBio" exact element={<TerraBioPage />} />
         <Route path="/Contact" exact element={<ContactPage />} />
-        <Route path="/Article" exact element={<ArticlePage />} />
+        <Route path="/API F1" exact element={<ArticlePage />} />
         <Route path="/Admin" exact element={<AdminPage />} />
         <Route element={<NotFoundPage/>} />
       </Routes>
