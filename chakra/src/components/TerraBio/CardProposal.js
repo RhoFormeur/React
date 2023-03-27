@@ -17,14 +17,14 @@ import {
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 import vote from '../../assets/vote.svg';
 
-const CardProposal = props => {
-  const { proposal } = props;
+export const CardProposal = props => {
+  const { listProposal } = props;
 
   return (
     <Box>
-      <Text>Liste de Proposal</Text>
+      <Text>Liste de Proposals</Text>
       <Wrap spacing={'24px'} justify={'center'}>
-        {proposal.map(item => {
+        {listProposal.map(item => {
           let totalQuantity = 0;
           let totalValue = 0;
           return (
@@ -119,5 +119,3 @@ const CardProposal = props => {
     </Box>
   );
 };
-
-export default CardProposal;
