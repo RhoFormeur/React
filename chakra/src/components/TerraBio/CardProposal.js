@@ -29,12 +29,12 @@ export const CardProposal = props => {
           let totalValue = 0;
           return (
             <WrapItem>
-              <Card minW={'xs'} key={item.id} boxShadow="base">
+              <Card minW={'xs'} key={item.id} boxShadow="base" bg={'darkness.500'}>
                 <CardHeader>
                   <Flex justify={'space-between'}>
                     <Box>
                       <Text>Proposal #{item.id}</Text>
-                      <Text fontSize={'sm'} color={'grey'}>
+                      <Text fontSize={'sm'} color={'secondary.500'}>
                         {item.date}
                       </Text>
                     </Box>
@@ -56,7 +56,7 @@ export const CardProposal = props => {
                             <Flex direction={'column'} justify={'space-around'}>
                               <Flex direction={'column'}>
                                 <Text>Item :</Text>
-                                <Text fontSize={'sm'} color={'grey'}>
+                                <Text fontSize={'sm'} color={'secondary.500'}>
                                   {item.content}
                                 </Text>
                               </Flex>
@@ -77,20 +77,20 @@ export const CardProposal = props => {
                 <CardFooter>
                   <Flex w={'100%'} justify={'space-between'}>
                     <Box>
-                      <Text fontSize={'sm'} color={'grey'}>
+                      <Text fontSize={'sm'} color={'secondary.500'}>
                         x{totalQuantity} Items
                       </Text>
                       <Text>${totalValue}</Text>
                     </Box>
                     {item.is_completed ? (
                       <Box>
-                        <Button leftIcon={<CheckIcon />} colorScheme="green">
+                        <Button leftIcon={<CheckIcon />} variant={'sm'}>
                           Completed
                         </Button>
                       </Box>
                     ) : item.is_rejected ? (
                       <Box>
-                        <Button leftIcon={<CloseIcon />} colorScheme="red">
+                        <Button leftIcon={<CloseIcon />} variant={'solid'}>
                           Rejected
                         </Button>
                       </Box>
@@ -98,12 +98,10 @@ export const CardProposal = props => {
                       <Box>
                         <HStack spacing={'24px'}>
                           <IconButton
-                            colorScheme="green"
                             icon={<CheckIcon />}
                           />
                           <IconButton
-                            variant="outline"
-                            colorScheme="green"
+                            variant={'solid'}
                             icon={<CloseIcon />}
                           />
                         </HStack>

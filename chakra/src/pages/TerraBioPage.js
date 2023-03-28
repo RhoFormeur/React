@@ -1,5 +1,6 @@
-import {CardProposal} from '../components/TerraBio/CardProposal';
-import {CardArticle} from '../components/TerraBio/CardArticle';
+import { CardProposal } from '../components/TerraBio/CardProposal';
+import { CardArticle } from '../components/TerraBio/CardArticle';
+import { CardAnnonce } from '../components/TerraBio/CardAnnonce';
 
 import { Stack } from '@chakra-ui/react';
 
@@ -40,50 +41,74 @@ export const TerraBioPage = () => {
       is_completed: 1,
     },
   ];
+
   const listArticle = [
     {
-      id:0,
-      title : 'Blockchain developer best practices on innovationchain',
-      tags :['finance','bitcoin','crypto'],
+      id: 0,
+      title: 'Blockchain developer best practices on innovationchain',
+      tags: ['finance', 'bitcoin', 'crypto'],
       username: 'Pavel Gvay',
       avatar:
         'https://cdn.iconscout.com/icon/free/png-512/avatar-375-456327.png',
       published_date: '3 weeks ago',
-      views : 651324,
-      likes : 366545,
-      comments : 56,
+      views: 651324,
+      likes: 366545,
+      comments: 56,
     },
     {
-      id:1,
-      title : 'What is Blockchain ?',
-      tags :['blockchain','novice','learn'],
+      id: 1,
+      title: 'What is Blockchain ?',
+      tags: ['blockchain', 'novice', 'learn'],
       username: 'Raph P',
       avatar:
         'https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-366-456318-512.png',
       published_date: '2 years ago',
-      views : 999999,
-      likes : 456789,
-      comments : 789,
+      views: 999999,
+      likes: 456789,
+      comments: 789,
     },
     {
-      id:2,
-      title : "Pas d'idée",
-      tags :['no idea','think','imagination'],
+      id: 2,
+      title: "Pas d'idée",
+      tags: ['no idea', 'think', 'imagination'],
       username: 'Jean-Michel Apeupré',
       avatar:
         'https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-373-456325-512.png',
       date: '21 Mars 2023, 06.48AM',
       published_date: '4 months ago',
-      views : 1234,
-      likes : 5678,
-      comments : 12,
+      views: 1234,
+      likes: 5678,
+      comments: 12,
     },
   ];
 
+  const listAnnonce = [
+    {
+      id: 0,
+      avatar:
+        'https://lens-storage.storage.googleapis.com/png/7230448a-e0f6-4a6e-8ecc-f654ce2d8d56',
+      firstname: 'John',
+      lastname: 'Wick',
+      job_title: 'A retired hitman who is legendary in the criminal underworld',
+      rating: 5,
+      students_nb: 0,
+    },
+    {
+      id: 1,
+      avatar: 'https://www.pngarts.com/files/11/Avatar-PNG-Free-Download.png',
+      firstname: 'Bruce',
+      lastname: 'Wayne',
+      job_title:
+        'A wealthy American playboy, philanthropist, and industrialist who resides in Gotham City',
+      rating: 5,
+      students_nb: 27,
+    },
+  ];
   return (
     <Stack spacing={'24px'}>
       <CardProposal listProposal={listProposal} />
       <CardArticle listArticle={listArticle} />
+      <CardAnnonce listAnnonce={listAnnonce} />
     </Stack>
   );
 };

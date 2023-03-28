@@ -2,13 +2,14 @@ import Navigation from '../components/core/Navigation';
 import Footer from '../components/core/Footer';
 import { Outlet } from 'react-router-dom';
 import { ChakraProvider,Grid, GridItem } from '@chakra-ui/react';
+import {theme} from '../Theme'
 
 export const AdminLayout = () => {
   const title = 'Admin Page';
   const navlink = ['Admin'];
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Grid
         templateAreas={`"nav"
                         "main"

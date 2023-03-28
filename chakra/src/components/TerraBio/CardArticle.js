@@ -17,7 +17,7 @@ export const CardArticle = props => {
   const { listArticle } = props;
 
   return (
-    <Flex direction={'column'}>
+    <Box>
       <Text>Liste d'Articles</Text>
       <VStack spacing={'10px'}>
         {listArticle.map(item => {
@@ -29,7 +29,7 @@ export const CardArticle = props => {
               gridTempLateColumns={'1fr 1fr'}
               gap="1"
               key={item.id}
-              bg={'whiteAlpha.100'}
+              bg={'darkness.500'}
               borderRadius={'20px'}
               p={'6'}
               maxW={'80vw'}
@@ -45,14 +45,13 @@ export const CardArticle = props => {
                     <Flex>
                       <HStack spacing={'10px'}>
                         {item.tags.map(tag => {
-                          return <Tag fontSize={'9'} color={'blue.100'} borderRadius={'full'}>{tag}</Tag>;
+                          return <Tag fontSize={'9'} color={'secondary.500'} borderRadius={'full'}>{tag}</Tag>;
                         })}
                       </HStack>
                     </Flex>
                   </Box>
                   <IconButton
-                    variant="outline"
-                    colorScheme="green"
+                    borderRadius={'full'}
                     icon={<AiTwotoneHeart />}
                   />
                 </Flex>
@@ -65,15 +64,15 @@ export const CardArticle = props => {
                       <Image w={'50px'} src={item.avatar} />
                       <Box>
                         <Text>{item.username}</Text>
-                        <Text fontSize={'xs'} color={'blue.100'}>{item.published_date}</Text>
+                        <Text fontSize={'xs'} color={'secondary.500'}>{item.published_date}</Text>
                       </Box>
                     </HStack>
                   </Flex>
                   <Flex>
                     <HStack>
-                    <Text fontSize={'xs'} color={'blue.100'}>{item.views} Views</Text>
-                    <Text fontSize={'xs'} color={'blue.100'}>{item.likes} Likes</Text>
-                    <Text fontSize={'xs'} color={'blue.100'}>{item.comments} Comments</Text>
+                    <Text fontSize={'xs'} color={'secondary.500'}>{item.views} Views</Text>
+                    <Text fontSize={'xs'} color={'secondary.500'}>{item.likes} Likes</Text>
+                    <Text fontSize={'xs'} color={'secondary.500'}>{item.comments} Comments</Text>
                     </HStack>
                   </Flex>
                 </Flex>
@@ -82,6 +81,6 @@ export const CardArticle = props => {
           );
         })}
       </VStack>
-    </Flex>
+    </Box>
   );
 };
